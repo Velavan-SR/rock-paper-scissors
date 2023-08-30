@@ -1,11 +1,10 @@
-const user = document.querySelector(".user");
 const userImg = document.getElementById("user-hand");
 const pcImg = document.getElementById("pc-hand");
 const options = document.querySelector(".options");
 const user_score = document.querySelector(".user-score");
 const pc_score = document.querySelector(".pc-score");
 const replay = document.querySelector(".replay");
-const hand_options = ["rock", "paper", "scissors"];
+const pc_options = ["rock", "paper", "scissors"];
 
 let userScore = 0;
 let pcScore = 0;
@@ -17,7 +16,7 @@ document.querySelectorAll(".options > img").forEach((op) => {
 
 function mainFunc(op) {
   userImg.src = `assets/${op}-hand.png`;
-  const pcHand = hand_options[Math.floor(Math.random() * 3)];
+  const pcHand = pc_options[Math.floor(Math.random() * 3)];
   pcHandGen(pcHand);
   compare(op, pcHand);
 }
