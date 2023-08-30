@@ -10,7 +10,7 @@ let userScore = 0;
 let pcScore = 0;
 let content='';
 
-document.querySelectorAll(".options > img").forEach((op) => {
+document.querySelectorAll(".options  img").forEach((op) => {
   op.addEventListener("click", () => mainFunc(op.alt));
 });
 
