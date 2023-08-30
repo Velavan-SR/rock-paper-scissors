@@ -21,7 +21,6 @@ function mainFunc(op) {
   compare(op, pcHand);
 }
 
-// Generating random hand image for AI
 function pcHandGen(hand) {
   pcImg.src = `assets/${hand}-hand.png`;
 }
@@ -40,12 +39,18 @@ function compare(userHand, pcHand) {
 }
 
 function check(user, pc) {
-  if (user === "5" || pc === "5") {
+  if (user === "5" && user>pc ) {
     options.style.visibility = "hidden";
+    replay.innerHTML+='<h3> You Won ! </h3>'
+    replay.style.visibility = "visible";
+  }
+  else if ( pc=== '5' && pc>user){
+    options.style.visibility = "hidden";
+    replay.innerHTML+='<h3> You Lost :( </h3>'
     replay.style.visibility = "visible";
   }
 }
 
-document.querySelector(".play-again").onclick = () => {
-  window.location.reload()
-};
+document.querySelector(".play-again").addEventListener('click',() => {
+  window.location.reload();
+})
