@@ -9,6 +9,7 @@ const hand_options = ["rock", "paper", "scissors"];
 
 let userScore = 0;
 let pcScore = 0;
+let content='';
 
 document.querySelectorAll(".options > img").forEach((op) => {
   op.addEventListener("click", () => mainFunc(op.alt));
@@ -41,16 +42,22 @@ function compare(userHand, pcHand) {
 function check(user, pc) {
   if (user === "5" && user>pc ) {
     options.style.visibility = "hidden";
-    replay.innerHTML+='<h3> You Won ! </h3>'
+    content=`<h3> You Won ! </h3>
+    <div class='play-again'>Play Again</div>`
+    replay.innerHTML+=content;
     replay.style.visibility = "visible";
+    document.querySelector(".play-again").addEventListener('click',() => {
+      window.location.reload();
+    })
   }
   else if ( pc=== '5' && pc>user){
     options.style.visibility = "hidden";
-    replay.innerHTML+='<h3> You Lost :( </h3>'
+    content=`<h3> You Lost :( </h3>
+    <div class='play-again'>Play Again</div>`
+    replay.innerHTML+=content;
     replay.style.visibility = "visible";
+    document.querySelector(".play-again").addEventListener('click',() => {
+      window.location.reload();
+    })
   }
 }
-
-document.querySelector(".play-again").addEventListener('click',() => {
-  window.location.reload();
-})
